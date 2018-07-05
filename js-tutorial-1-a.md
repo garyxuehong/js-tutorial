@@ -75,12 +75,49 @@ function main() {
     createOrder(addProductsToOrder)
 }
 function addProductsToOrder(orderId) {
-    serverCall_AddProducts(orderId, products, sendConfirmation)
+    serverCall_AddProducts(orderId, products, sendConfirmation, addProductFail)
+}
+function addProductFail() {
+    //blahblah
 }
 function sendConfirmation(transactionNumber) {
-    serverCall_SendConfirmation(andOthers);
+    serverCall_SendConfirmation(andOthers, sendConfirmFail);
 }
-function andOthers() {}
-function andOthers2() {}
-function andOthers3() {}
+function sendConfirmFail() {
+    //blah blah
+}
 ```
+
+Cons:
+
+* code flow is broken into sub-functions, very hard to understand
+* handling failure is also hard
+
+---
+
+# `Promise` to resuce
+
+```javascript
+function main() {
+    const initialPromise = createOrder();
+    const anotherPromise = initialPromise
+        .then(addProductsToOrder);
+        .catch(onFailAddProduct)
+        .then(function(transactionNumber){
+            return sendConfirmationEmail(transactionNumber);
+        });
+        .catch(onFailSendConfirm)
+    anotherPromise
+        .then(andOthers)
+        .then(andOthers2)
+        .catch(onGenericFailure);
+}
+```
+
+Pros:
+* Easy to understand code workflow
+* Easy to handle error
+
+Cons:
+* Sometimes you need to wrap your head around the `then`, `catch`
+* watch the return value in `then` and `catch`, the result can be completetly different
