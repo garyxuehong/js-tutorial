@@ -113,5 +113,10 @@ console.log('the value of hoistVarA2 is ', hoistVarA2);
 let hoistVarA2 = 'a_value2';
 ```
 
+---
 
+# Wrap up
 
+* Use `let` and `const`
+
+* Beware of hoisting problem
