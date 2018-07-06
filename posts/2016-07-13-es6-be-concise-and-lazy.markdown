@@ -1,15 +1,14 @@
----
-layout: post
-title:  "ES6: Be concise and lazy"
-date:   2016-07-13 09:18:37 +1000
-categories: es6 tutorial
----
+class: center, middle
 
-notes: This is part of the series [Dive in ES6](./dive-in-es6.html)
+ES6: Be concise and lazy
+
+---
 
 # ES6 add some syntax sugar to make our live easier, and we should grab it
 
-## String interpolation
+---
+
+# String interpolation
 
 How many times did you wrote this?
 
@@ -18,6 +17,8 @@ var now = new Date();
 var name = 'Peter';
 console.log('The time now is ' + now + ', and I am ' + name);
 ```
+
+---
 
 With ES6 new string syntax **`**, we can do it like this:
 
@@ -33,7 +34,9 @@ I have super responsibility.
 `);
 ```
 
-## default parameter value
+---
+
+# default parameter value
 
 You must wrote this before
 
@@ -48,6 +51,8 @@ function hello(name, title) {
 hello('Pear', 'Dr.');
 ```
 
+---
+
 The above works, but things get trickier if we have boolean value in option (or falsy value)
 
 ```javascript
@@ -61,7 +66,9 @@ function hello(name, alive) {
 hello('Jon Snow', false);
 ```
 
-ES6 now support default parameters
+---
+
+# ES6 now support default parameters
 
 ```javascript
 function hello(name = '[no one]', alive = true) {
@@ -70,7 +77,11 @@ function hello(name = '[no one]', alive = true) {
 hello('Ramsay Bolton', false);
 ```
 
-## Spread  the ~~butter~~ parameter
+---
+
+# Spread the ...
+
+Spread  the ~~butter~~ parameter
 ```javascript
 function hello(name = '[no one]', alive = true) {
 	console.log('Hello I am ' + name + ', and I am ' + (alive?'alive':'dead'));
@@ -78,6 +89,8 @@ function hello(name = '[no one]', alive = true) {
 var someArrayData = ['personA', false]
 hello(...someArrayData);
 ```
+
+---
 
 Or the other way around
 
@@ -89,7 +102,11 @@ var a=b=c=d=e=f='*';
 hello('Nokia', false, a,b,c,d,e,f);
 ```
 
-## ~~Improvement for the lazy~~ Property shorthand
+---
+
+# Be lazy
+
+~~Improvement for the lazy~~ Property shorthand
 
 So you have some variables, and want to return it as an object
 
@@ -103,6 +120,8 @@ function getPerson(name, age) {
 console.log('', getPerson('A', 20));
 ```
 
+---
+
 With ES6, when constructing an object, the value can be omitted if key is the same as value name
 
 ```javascript
@@ -112,7 +131,11 @@ function getPerson(name, age) {
 console.log('', getPerson('A', 20));
 ```
 
-## Destructuring
+---
+
+# Destructuring
+
+Basic
 
 ```javascript
 var obj = {
@@ -138,7 +161,11 @@ var {name:{fn: aliasFirstName, ln}, skill:[,secondSkill]} = obj;
 console.log('check wat i have', {aliasFirstName, ln, secondSkill});
 ```
 
-## Finally, when combined the above together, we have crystal clear code
+---
+
+# Combined!
+
+Finally, when combined the above together, we have crystal clear code
 
 **For a piece code like this**
 
@@ -163,6 +190,8 @@ getData('3192', 'vic', null, null, 'cheltenham');
 getData('3192', null, null, null, 'cheltenham');
 ```
 
+---
+
 To make the function interface more flexible and clear (e.g. named parameter), often we pack the paramter together as option
 
 ```javascript
@@ -185,6 +214,8 @@ getData({
 ```
 
 There's one drawback of the above code: the interface/strucute of ```option``` is not clear!
+
+---
 
 With ES6, we can do the following, with bonus of default parameter
 
