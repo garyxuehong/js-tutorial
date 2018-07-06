@@ -98,7 +98,7 @@ console.log(declareConstA);
 
 ## Hoisting of `let` and `const`
 
-Previously, we can access `var` before the line they are declare, although the value will be ```undefined```.
+Previously, we can access `var` before the line they are declare, although the value will be `undefined`.
 
 ```javascript
 console.log('the value of hoistVarA is ', hoistVarA);
