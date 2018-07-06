@@ -1,23 +1,26 @@
----
-layout: post
-title:  "ES6: Arrow function"
-date:   2016-07-13 09:18:37 +1000
-categories: es6 tutorial
----
-
-notes: This is part of the series [Dive in ES6](./dive-in-es6.html)
+class: center, middle
 
 # Arrow function to rescue
 
-So we have arrow function now ```()=>{}```. But why?
+So we have arrow function now `()=>{}`. But why?
 
-## Prerequisite
+---
 
-How to we write class in js?
+# Prerequisite
+
+## How to we write class in js?
+
+--
 
 **We DON'T, it is bad code smell, do Functional Reactive Programming (ideally)**
 
+--
+
 **OR at lease, try to understand prototypical inheritance first [JS Objects: De"construct"ion](https://davidwalsh.name/javascript-objects-deconstruction)**
+
+---
+
+# Use function
 
 In reality, the following is one of the many ways
 
@@ -33,11 +36,11 @@ new ClassA('instanceA').hello();
 
 In the real world, especially within html DOM, things getting messier
 
-## ```this``` is a problem.
+---
+
+# `this` is a problem.
 
 Take a look at the following:
-
-<button id="clickme">clickme</button>
 
 ```javascript
 window.Person1 = function() {
@@ -51,9 +54,11 @@ window.Person1.prototype.hookToButton = function(id) {
 new window.Person1().hookToButton('clickme');
 ```
 
-One of the way to work around is to assign ```this``` to a local variable
+---
 
-<button id="clickme2">clickme2</button>
+# Workaround
+
+One of the way to work around is to assign `this` to a local variable
 
 ```javascript
 window.Person2 = function() {
@@ -68,9 +73,10 @@ window.Person2.prototype.hookToButton = function(id) {
 new window.Person2().hookToButton('clickme2');
 ```
 
-Another workaround is to use the ```.bind()```
+---
 
-<button id="clickme3">clickme3</button>
+# Workaround 2
+Another workaround is to use the `.bind()`
 
 ```javascript
 window.Person3 = function() {
@@ -85,9 +91,9 @@ window.Person3.prototype.hookToButton = function(id) {
 new window.Person3().hookToButton('clickme3');
 ```
 
-**NOW we have arrow function**
+---
 
-<button id="clickmeArrow">clickmeArrow</button>
+# Now we have arrow function !!
 
 ```javascript
 window.PersonArrow = function() {
@@ -101,9 +107,15 @@ window.PersonArrow.prototype.hookToButton = function(id) {
 new window.PersonArrow().hookToButton('clickmeArrow');
 ```
 
-**Key takeaway is: ()=>{} will bind ```this``` to the scope where it is defined (lexical scope)**
+---
 
-## There're more about arrow function
+# Key takeaway:
+
+()=>{} will bind `this` to the scope where it is defined (lexical scope)
+
+---
+
+# There're more about arrow function
 
 ***GOOD*** developers are lazy, arrow function ```()=>{}``` save you a lot of key strokes
 
@@ -122,11 +134,6 @@ function arrowAwesome() {
 		d: (name, age) => ({name: 'hello ' + name, age: age})
 	}
 }
-
-console.log('', arrowAwesome().a('shine'));
-console.log('', arrowAwesome().b('shine', 99));
-console.log('', arrowAwesome().c('shine', 99));
-console.log('', arrowAwesome().d('shine', 99));
 
 ```
 
