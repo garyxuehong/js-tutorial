@@ -1,10 +1,6 @@
 class: center, middle
 
-ES6: Be concise and lazy
-
----
-
-# ES6 add some syntax sugar to make our live easier, and we should grab it
+# ES6: Be concise and lazy
 
 ---
 
@@ -18,9 +14,9 @@ var name = 'Peter';
 console.log('The time now is ' + now + ', and I am ' + name);
 ```
 
----
+--
 
-With ES6 new string syntax **`**, we can do it like this:
+With ES6 new string syntax, we can do it like this:
 
 ```javascript
 let now = new Date();
@@ -36,7 +32,7 @@ I have super responsibility.
 
 ---
 
-# default parameter value
+# Default parameter value
 
 You must wrote this before
 
@@ -51,7 +47,7 @@ function hello(name, title) {
 hello('Pear', 'Dr.');
 ```
 
----
+--
 
 The above works, but things get trickier if we have boolean value in option (or falsy value)
 
@@ -90,7 +86,7 @@ var someArrayData = ['personA', false]
 hello(...someArrayData);
 ```
 
----
+--
 
 Or the other way around
 
@@ -106,7 +102,7 @@ hello('Nokia', false, a,b,c,d,e,f);
 
 # Be lazy
 
-~~Improvement for the lazy~~ Property shorthand
+Property shorthand
 
 So you have some variables, and want to return it as an object
 
@@ -120,7 +116,7 @@ function getPerson(name, age) {
 console.log('', getPerson('A', 20));
 ```
 
----
+--
 
 With ES6, when constructing an object, the value can be omitted if key is the same as value name
 
@@ -147,6 +143,8 @@ console.log('name is ', name);
 console.log('skills are', skill);
 ```
 
+--
+
 advance destructuring
 
 ```javascript
@@ -167,7 +165,7 @@ console.log('check wat i have', {aliasFirstName, ln, secondSkill});
 
 Finally, when combined the above together, we have crystal clear code
 
-**For a piece code like this**
+Given a code like below
 
 ```javascript
 function getData(postcode, state, customerType, campaignId) {
@@ -176,7 +174,9 @@ function getData(postcode, state, customerType, campaignId) {
 getData('3000', 'vic', 'resi', '1234');
 ```
 
-suppose we need to add a parameter call ```suburb``` 
+--
+
+suppose we need to add a parameter call `suburb`
 
 In order to maintain backward compatibility, we need to add the parameter to the end
 
@@ -213,7 +213,9 @@ getData({
 });
 ```
 
-There's one drawback of the above code: the interface/strucute of ```option``` is not clear!
+--
+
+**There's one drawback of the above code: the interface/strucute of `option` is not clear!**
 
 ---
 
@@ -244,6 +246,16 @@ getData({
 	}
 });
 ```
+
+---
+
+# Yet things can in improved a lot if `flowtype` or `typescripts` are used
+
+---
+
+# Wrap up
+
+Write concise and clear code
 
 
 
